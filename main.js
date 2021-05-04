@@ -51,6 +51,7 @@ Create Elements
 
 var wallColor = 0xeeeeee;
 var floorImg = loader.load('https://squirrel-314.github.io/vegetable-dash/Images/Plots/plot.png');
+var wallpaper;
 
 createRoom();
 function createRoom() {
@@ -124,7 +125,7 @@ function newSquare(distance, secondDistance) {
 }
 function newWall(distance, secondDistance) {
    var square = new THREE.BoxGeometry(2.5, 8, .5);
-   var sqaureMaterial = new THREE.MeshStandardMaterial( { color: wallColor, flatShading: true, metalness: 0, roughness: 1 });
+   var sqaureMaterial = new THREE.MeshStandardMaterial( { color: wallColor, flatShading: true, metalness: 0, roughness: 1, map: wallpaper, });
    var platformSquare = new THREE.Mesh ( square, sqaureMaterial );
    scene.add( platformSquare );
    platformSquare.position.set(distance, 4, secondDistance);
