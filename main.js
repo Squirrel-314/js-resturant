@@ -102,17 +102,29 @@ function createRoom() {
    newFloorLine2(-7.0);
 
    // Walls
-   newWall(0, 7.5);
-   newWall(2.8, 7.5);
-   newWall(5.6, 7.5);
-   newWall(-2.8, 7.5);
-   newWall(-5.6, 7.5);
+   newWall1(0, 7.5);
+   newWall1(2.8, 7.5);
+   newWall1(5.6, 7.5);
+   newWall1(-2.8, 7.5);
+   newWall1(-5.6, 7.5);
 
-   newWall(0, -7.5);
-   newWall(2.8, -7.5);
-   newWall(5.6, -7.5);
-   newWall(-2.8, -7.5);
-   newWall(-5.6, -7.5);
+   newWall1(0, -7.5);
+   newWall1(2.8, -7.5);
+   newWall1(5.6, -7.5);
+   newWall1(-2.8, -7.5);
+   newWall1(-5.6, -7.5);
+
+   // newWall2(0, 7.5);
+   newWall2(2.8, 7.5);
+   newWall2(5.6, 7.5);
+   newWall2(-2.8, 7.5);
+   newWall2(-5.6, 7.5);
+
+   newWall2(0, -7.5);
+   newWall2(2.8, -7.5);
+   newWall2(5.6, -7.5);
+   newWall2(-2.8, -7.5);
+   newWall2(-5.6, -7.5);
 }
 
 function newSquare(distance, secondDistance) {
@@ -123,12 +135,19 @@ function newSquare(distance, secondDistance) {
    scene.add( platformSquare );
    platformSquare.position.set(distance, 0, secondDistance);
 }
-function newWall(distance, secondDistance) {
-   var square = new THREE.BoxGeometry(2.5, 8, .5);
+function newWall1(distance, secondDistance) {
+   var square = new THREE.BoxGeometry(2.8, 8, .5);
    var sqaureMaterial = new THREE.MeshStandardMaterial( { color: wallColor, flatShading: true, metalness: 0, roughness: 1, map: wallpaper, });
    var platformSquare = new THREE.Mesh ( square, sqaureMaterial );
    scene.add( platformSquare );
    platformSquare.position.set(distance, 4, secondDistance);
+}
+function newWall2(distance, secondDistance) {
+   var square = new THREE.BoxGeometry(.5, 8, 2.8);
+   var sqaureMaterial = new THREE.MeshStandardMaterial( { color: wallColor, flatShading: true, metalness: 0, roughness: 1, map: wallpaper, });
+   var platformSquare = new THREE.Mesh ( square, sqaureMaterial );
+   scene.add( platformSquare );
+   platformSquare.position.set(secondDistance, 4, distance);
 }
 function newFloorLine1(distance) {
    var object = new THREE.BoxGeometry(.3, .5, 15);
