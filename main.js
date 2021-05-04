@@ -1,13 +1,10 @@
-// Scene + Camera + Renderer
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Minimum
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(150, window.innerWidth / window.innerHeight, 0.1, 1000 );
 const renderer = new THREE.WebGLRenderer({ antialias: true});
 const loader = new THREE.TextureLoader();
-
-var platforms = [];
-// Delete item from platforms
-// scene.remove( platforms[0] );
-// platforms.shift();
 
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setClearColor("#eee");
@@ -29,14 +26,6 @@ var receptionistDesk = new THREE.Mesh ( receptionistDeskBox, receptionistDeskMat
 scene.add( receptionistDesk );
 receptionistDesk.position.set(4.2, 2, 2.8);
 
-// ambient light
-var ambientLight = new THREE.AmbientLight ( 0xffffff, 0.2);
-scene.add( ambientLight );
-
-// point light
-var pointLight = new THREE.PointLight( 0xffffff, 1 );
-pointLight.position.set( 25, 50, 25 );
-scene.add( pointLight );
 
 setInterval(() => { renderer.render( scene, camera ); }, 10)
 renderer.render( scene, camera );
@@ -46,8 +35,22 @@ window.onresize = function() { renderer.render( scene, camera ); };
 var controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Create Elements
+Lights
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+var ambientLight = new THREE.AmbientLight ( 0x404040, 2 );
+scene.add( ambientLight );
+
+var pointLight = new THREE.PointLight( 0xffffff, .5 );
+pointLight.position.set( 0, 50, 0 );
+scene.add( pointLight );
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Room
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+var platforms = [];
+// Delete item from platforms
+// scene.remove( platforms[0] );
+// platforms.shift();
 
 var wallColor = 0xeeeeee;
 var floorImg = loader.load('https://squirrel-314.github.io/vegetable-dash/Images/Plots/plot.png');
@@ -125,6 +128,9 @@ function createRoom() {
    newWall2(5.6, -7.5);
    newWall2(-2.8, -7.5);
    newWall2(-5.6, -7.5);
+
+   newDesk();
+   newClock();
 }
 
 function newSquare(distance, secondDistance) {
@@ -162,4 +168,19 @@ function newFloorLine2(distance) {
    var result = new THREE.Mesh ( object, material );
    scene.add( result );
    result.position.set(0, 0, distance);
+}
+function newDesk() {
+   var receptionistDeskBox = new THREE.BoxGeometry(5.2, 3, 2.5);
+   var receptionistDeskMaterial = new THREE.MeshStandardMaterial( { color: 0x583702, flatShading: true, metalness: 0, roughness: 1 });
+   var receptionistDesk = new THREE.Mesh ( receptionistDeskBox, receptionistDeskMaterial );
+   scene.add( receptionistDesk );
+   receptionistDesk.position.set(4.2, 2, 2.8);
+}
+function newClock() {
+   var object = new THREE.CylinderGeometry(1.8, 1.8, .6, 200);
+   var material = new THREE.MeshStandardMaterial( { color: 0xb9a7f4, flatShading: true, metalness: 0, roughness: 1, map: loader.load('https://squirrel-314.github.io/js-resturant/Images/clock.png') });
+   var result = new THREE.Mesh ( object, material );
+   scene.add( result );
+   result.position.set(7, 5.5, -4);
+   result.rotation.set(1.6, 0, 1.6);
 }
