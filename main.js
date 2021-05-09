@@ -129,6 +129,13 @@ function createRoom() {
    newWall2(-2.8, -7.5);
    newWall2(-5.6, -7.5);
 
+   // Wall line
+   newWallLine(7.4, 7.4);
+   newWallLine(-7.4, -7.4);
+   newWallLine(-7.4, 7.4);
+   newWallLine(7.4, -7.4);
+
+   // Miscellaneous items
    newDesk();
    newClock();
 }
@@ -169,6 +176,13 @@ function newFloorLine2(distance) {
    scene.add( result );
    result.position.set(0, 0, distance);
 }
+function newWallLine(num1, num2) {
+   var object = new THREE.BoxGeometry(.8, 8, .8);
+   var material = new THREE.MeshStandardMaterial( { color: 0xeeeeee, flatShading: true, metalness: 0, roughness: 1 });
+   var result = new THREE.Mesh ( object, material );
+   scene.add( result );
+   result.position.set(num1, 4, num2);
+}
 function newDesk() {
    var receptionistDeskBox = new THREE.BoxGeometry(5.2, 3, 2.5);
    var receptionistDeskMaterial = new THREE.MeshStandardMaterial( { color: 0x583702, flatShading: true, metalness: 0, roughness: 1 });
@@ -177,10 +191,10 @@ function newDesk() {
    receptionistDesk.position.set(4.2, 2, 2.8);
 }
 function newClock() {
-   var object = new THREE.CylinderGeometry(1.8, 1.8, .6, 200);
-   var material = new THREE.MeshStandardMaterial( { color: 0xb9a7f4, flatShading: true, metalness: 0, roughness: 1, map: loader.load('https://squirrel-314.github.io/js-resturant/Images/clock.png') });
+   var object = new THREE.CylinderGeometry(1.8, 1.8, .2, 200);
+   var material = new THREE.MeshStandardMaterial( { color: 0xffffff, flatShading: true, metalness: 0, roughness: 1, map: loader.load('https://squirrel-314.github.io/js-resturant/Images/clock.png') });
    var result = new THREE.Mesh ( object, material );
    scene.add( result );
-   result.position.set(7, 5.5, -4);
-   result.rotation.set(1.6, 0, 1.6);
+   result.position.set(7.2, 5.5, -4);
+   result.rotation.set(0, 0, 1.6);
 }

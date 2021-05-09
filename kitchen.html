@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+      <title>JS Resturant</title>
+      <style media="screen">
+         *, body { padding: 0; margin: 0; }
+         body { overflow: hidden; }
+         button { transition: transform 150ms ease; }
+         button:focus { outline: none; }
+         button:active { transform: scale(0.99); }
+         #resturant {
+            position: fixed;
+            top: 1vh;
+            left: 1vh;
+            height: 10vh;
+            width: 50vh;
+            text-align: center;
+            padding: 0 1vh;
+            outline: none;
+            border: none;
+            border-radius: 2vh;
+            font-size: 4vh;
+            text-shadow: 0 0 2vh #222;
+            transition: .15s;
+            font-weight: 800;
+            letter-spacing: 1vh;
+            color: #eee;
+            background-image: linear-gradient(to right, #f74040, #F9A748, #F8F948, #3FE863, #63E1FF, #6B3FE8);
+         }
+      </style>
+   </head>
+   <body>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.js"></script>
+     <script src="js/OrbitControls.js"></script>
+     <script src="kitchen.js"></script>
+     <button class="purple" id="resturant" onclick="document.location = 'index.html';">Resturant</button>
+   </body>
+</html>

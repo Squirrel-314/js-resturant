@@ -10,6 +10,7 @@
             padding: 0;
             margin: 0;
          }
+         body { overflow: hidden; }
          button { transition: transform 150ms ease; }
          button:focus { outline: none; }
          button:active { transform: scale(0.99); }
@@ -21,13 +22,15 @@
             height: 25vh;
             background-color: #ddd;
             border-radius: 2vh;
+            text-align: center;
          }
          .wall-color {
-            width: 25vw;
+            width: 15vw;
             height: 100%;
             padding: 0 1vh;
             box-sizing: border-box;
             display: inline-block;
+            overflow: hidden;
          }
          .wall-color button {
             width: 100%;
@@ -53,6 +56,11 @@
          .green:active { box-shadow: 0 1vh #03B428; }
          .blue:active { box-shadow: 0 1vh #16CCF8; }
          .purple:active { box-shadow: 0 1vh #4B20C8; }
+         #kitchen {
+            height: 80%;
+            font-size: 5vh;
+            letter-spacing: .3vh;
+         }
       </style>
    </head>
    <body>
@@ -74,6 +82,19 @@
            <button class="yellow" onclick="wallpaper = loader.load('https://squirrel-314.github.io/js-resturant/Images/pale-blue-floral-wallpaper.png'); wallColor = 0xffffff; createRoom();">Change Wallpaper</button>
            <button class="yellow" onclick="wallpaper = loader.load('https://squirrel-314.github.io/js-resturant/Images/pale-pink-floral-wallpaper.png'); wallColor = 0xffffff; createRoom();">Change Wallpaper</button>
            <button class="yellow" onclick="wallpaper = loader.load('https://squirrel-314.github.io/js-resturant/Images/brick-wallpaper.png'); wallColor = 0xffffff; createRoom();">Change Wallpaper</button>
+        </div>
+        <div class="wall-color">
+           <button class="green">Change Settings</button>
+           <button class="green">Change Settings</button>
+           <button class="green">Change Settings</button>
+        </div>
+        <div class="wall-color">
+           <button class="blue">Change Settings</button>
+           <button class="blue">Change Settings</button>
+           <button class="blue">Change Settings</button>
+        </div>
+        <div class="wall-color">
+           <button class="purple" id="kitchen" onclick="document.location = 'kitchen.html';">Kitchen</button>
         </div>
      </div>
    </body>

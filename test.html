@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Test</title>
+      <style media="screen">
+         *, body {
+            padding: 0;
+            margin: 0;
+         }
+         button { transition: transform 150ms ease; }
+         button:focus { outline: none; }
+         button:active { transform: scale(0.99); }
+         .land {
+            width: 100vh;
+            background-color: #ddd;
+            text-align: center;
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+         }
+         .tile {
+            background-color: red;
+            height: 20vh;
+            width: 20vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-size: contain;
+         }
+         .road { background-color: #f413b3; }
+         .bob {
+            display: inline-block;
+            height: 5vh;
+            width: 5vh;
+            background-color: lightblue;
+            border-radius: 100%;
+            transition: .5s;
+            box-shadow: inset 0 0 .5vh #222;
+            z-index: 100;
+         }
+         .num {
+            position: absolute;
+            top: 1vh;
+            right: 2vh;
+            color: #eee;
+         }
+      </style>
+   </head>
+   <body>
+     <div class="land">
+        <div class="tile weed" onclick="changeTileType(this);"><span class="num">1 </span></div>
+        <div class="tile road" onclick="changeTileType(this);"><span class="num">2 </span><span class="bob"></span></div>
+        <div class="tile weed" onclick="changeTileType(this);"><span class="num">3 </span></div>
+        <div class="tile weed" onclick="changeTileType(this);"><span class="num">4 </span></div>
+        <div class="tile road" onclick="changeTileType(this);"><span class="num">5 </span></div>
+        <div class="tile road" onclick="changeTileType(this);"><span class="num">6 </span></div>
+        <div class="tile road" onclick="changeTileType(this);"><span class="num">7 </span></div>
+        <div class="tile road" onclick="changeTileType(this);"><span class="num">8 </span></div>
+        <div class="tile road" onclick="changeTileType(this);"><span class="num">9 </span></div>
+        <div class="tile road" onclick="changeTileType(this);"><span class="num">10</span></div>
+        <div class="tile weed" onclick="changeTileType(this);"><span class="num">11</span></div>
+        <div class="tile weed" onclick="changeTileType(this);"><span class="num">12</span></div>
+        <div class="tile weed" onclick="changeTileType(this);"><span class="num">13</span></div>
+        <div class="tile road" onclick="changeTileType(this);"><span class="num">14</span></div>
+        <div class="tile weed" onclick="changeTileType(this);"><span class="num">15</span></div>
+        <div class="tile road" onclick="changeTileType(this);"><span class="num">16</span></div>
+        <div class="tile road" onclick="changeTileType(this);"><span class="num">17</span></div>
+        <div class="tile road" onclick="changeTileType(this);"><span class="num">18</span></div>
+        <div class="tile road" onclick="changeTileType(this);"><span class="num">19</span></div>
+        <div class="tile road" onclick="changeTileType(this);"><span class="num">20</span></div>
+        <div class="tile weed" onclick="changeTileType(this);"><span class="num">21</span></div>
+        <div class="tile road" onclick="changeTileType(this);"><span class="num">22</span></div>
+        <div class="tile weed" onclick="changeTileType(this);"><span class="num">23</span></div>
+        <div class="tile weed" onclick="changeTileType(this);"><span class="num">24</span></div>
+        <div class="tile road" onclick="changeTileType(this);"><span class="num">25</span></div>
+     </div>
+   </body>
+   <script src="test.js"></script>
+</html>
